@@ -1,21 +1,21 @@
 <template>
   <div id="app">
     <songList/>
-    <playList/>
+    <!-- <playList/> -->
     <pageBody/>
   </div>
 </template>
 
 <script>
 import songList from '@/components/songs.vue';
-import playList from '@/components/playlist.vue';
+// import playList from '@/components/playlist.vue';
 import pageBody from '@/components/page.vue';
 
 export default {
   name: 'App',
   components: {
     songList,
-    playList,
+    // playList,
     pageBody,
   }
 }
