@@ -3,6 +3,7 @@
         <button>Playlist</button>
         <article></article>
         <playList/>
+        <h4></h4>
     </div>
 </template>
 
@@ -33,16 +34,22 @@ import playList from './playlist.vue';
         methods: {
             moveList(){
                 if(this.inPlaylist){
-                    document.addEventListener(`click`, this.songs)
+                    document.querySelector(`p`).style.color = `blue`;
+                }else{
+                    document.querySelector(`p`).style.color = `red`;
                 }
+                this.inPlaylist = !this.inPlaylist;
             },
             pushList() {
+                document.querySelector(`article`).insertAdjacentHTML(`beforeend`, '<h3>${this.songs}</h3>');
                 console.log("it moves");
             },
             listSongs(){
-                for (let song of this.songs){
-                    document.querySelector(`article`).insertAdjacentHTML(`beforeend`, `<p>${song}</p>`)
+                let artTag = document.querySelector(`article`)
+                for (let song of artTag){
+                    song.addEventListener(`click`, this.pushList);
                 }
+                
             }
         },
         mounted () {
